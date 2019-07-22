@@ -11,8 +11,8 @@ function Map() {
 
   return (
     <GoogleMap 
-      defaultZoom={9}
-      defaultCenter={{ lat: 47.606209, lng: -122.332069 }} 
+      defaultZoom={12}
+      defaultCenter={{ lat: 46.9829827, lng: -123.8062302 }} 
       defaultOptions={{styles: mapStyles}}
     >
       {parkData.features.map(park => (
