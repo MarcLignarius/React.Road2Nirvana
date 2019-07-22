@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
-import * as parkData from '../../data/skateboard-parks.json';
+import * as parkData from './data/skateboard-parks.json';
+import mapStyles from './mapstyles';
 
 console.log(process.env.REACT_APP_GOOGLE_KEY);
 
@@ -12,6 +13,7 @@ function Map() {
     <GoogleMap 
       defaultZoom={10}
       defaultCenter={{ lat: 45.4211, lng: -75.6903 }} 
+      defaultOptions={{styles: mapStyles}}
     >
       {parkData.features.map(park => (
         <Marker
