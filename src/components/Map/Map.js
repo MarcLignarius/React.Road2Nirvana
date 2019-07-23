@@ -65,9 +65,14 @@ export default function Map() {
 								<CardContent>
 									<Typography gutterBottom variant="h5" component="h2">
 										{selectedLocation.NAME}
-										{selectedLocation.ADDRESS}
 									</Typography>
-									<Typography variant="body2" color="textSecondary" component="p">
+									<Typography variant="body1" color="textSecondary" component="p">
+										{selectedLocation.ADDRESS1}
+									</Typography>
+									<Typography variant="body1" color="textSecondary" component="p">
+										{selectedLocation.ADDRESS2}
+									</Typography>
+									<Typography variant="body2" color="textPrimary" component="p">
 										{selectedLocation.DESCRIPTION}
 									</Typography>
 								</CardContent>
