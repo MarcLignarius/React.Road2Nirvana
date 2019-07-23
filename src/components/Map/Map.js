@@ -2,9 +2,24 @@ import React, { useState } from 'react';
 import './Map.css';
 import { GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import locationList from '../../data/nirvana-landmarks.js';
-import mapStyles from './mapStyles.js';
+import mapStyles from './mapStyles.js'; import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+
+const useStyles = makeStyles({
+	card: {
+		maxWidth: 345,
+	},
+	media: {
+		height: 140,
+	},
+});
 
 export default function Map() {
+	const classes = useStyles();
 	const [selectedLocation, setSelectedLocation] = useState(null);
 
 	return (
@@ -40,13 +55,29 @@ export default function Map() {
 					}}
 				>
 					<div>
-						<h2>{selectedLocation.NAME}</h2>
-						<h4>{selectedLocation.ADDRESS}</h4>
-						<p>{selectedLocation.DESCRIPTION}</p>
-						<img src={selectedLocation.IMAGE} alt={selectedLocation.IMAGEALTTEXT}></img>
+						<Card className={classes.card}>
+							<CardActionArea>
+								<CardMedia
+									className={classes.media}
+									image={selectedLocation.IMAGE}
+									title={selectedLocation.IMAGEALTTEXT}
+								/>
+								<CardContent>
+									<Typography gutterBottom variant="h5" component="h2">
+										{selectedLocation.NAME}
+										{selectedLocation.ADDRESS}
+									</Typography>
+									<Typography variant="body2" color="textSecondary" component="p">
+										{selectedLocation.DESCRIPTION}
+									</Typography>
+								</CardContent>
+							</CardActionArea>
+						</Card>
 					</div>
 				</InfoWindow>
 			)}
 		</GoogleMap>
 	);
 }
+
+
