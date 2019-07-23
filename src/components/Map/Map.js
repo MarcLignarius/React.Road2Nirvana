@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Map.css';
 import { GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import locationList from '../../data/nirvana-landmarks.js';
-import mapStyles from './mapstyles.js';
+import mapStyles from './mapStyles.js';
 
 export default function Map() {
 	const [selectedLocation, setSelectedLocation] = useState(null);
@@ -43,7 +43,7 @@ export default function Map() {
 						<h2>{selectedLocation.NAME}</h2>
 						<h4>{selectedLocation.ADDRESS}</h4>
 						<p>{selectedLocation.DESCRIPTION}</p>
-						<img src={selectedLocation.IMAGE} alt="Kurt Cobain's childhood home"></img>
+						<img src={selectedLocation.IMAGE} alt={selectedLocation.IMAGEALTTEXT}></img>
 					</div>
 				</InfoWindow>
 			)}

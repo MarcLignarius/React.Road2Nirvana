@@ -10,7 +10,8 @@ const locationList = [
 		"TYPE": "Residence",
 		"ADDRESS": "2830 Aberdeen Ave, Hoquiam, WA 98550",
 		"COORDINATES": [46.974102, -123.858889],
-		"IMAGE": twentyeightthirtyaberdeenavenue
+		"IMAGE": twentyeightthirtyaberdeenavenue,
+		"IMAGEALTTEXT": "Kurt Cobain's Very First Home"
 	},
 	{
 		"ID": 2,
@@ -19,7 +20,8 @@ const locationList = [
 		"TYPE": "Residence",
 		"ADDRESS": "1210 East 1st Street, Aberdeen, WA 98520",
 		"COORDINATES": [46.9829827, -123.8062302],
-		"IMAGE": twelveteneastfirststreet
+		"IMAGE": twelveteneastfirststreet,
+		"IMAGEALTTEXT": "Kurt Cobain's Childhood Home",
 	},
 	{
 		"ID": 3,
@@ -28,7 +30,8 @@ const locationList = [
 		"TYPE": "Residence",
 		"ADDRESS": "413 Fleet St SMontesano, WA 98563",
 		"COORDINATES": [46.978115, -123.603495],
-		"IMAGE": fourthirtheensouthfleetstreet
+		"IMAGE": fourthirtheensouthfleetstreet,
+		"IMAGEALTTEXT": "Kurt Cobain's Father's Home",
 	}
 ]
 
