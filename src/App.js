@@ -41,6 +41,7 @@ function Map() {
         >
           <div>
             <h2>{selectedLocation.NAME}</h2>
+            <h4>{selectedLocation.ADDRESS}</h4>
             <p>{selectedLocation.DESCRIPTION}</p>
             <img src={selectedLocation.IMAGE} alt="Kurt Cobain's childhood home"></img>
           </div>
