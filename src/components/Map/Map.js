@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Map.css';
 import { GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import locationList from '../../data/nirvana-landmarks.js';
-import mapStyles from '../../mapstyles';
+import mapStyles from './mapstyles.js';
 
 export default function Map() {
 	const [selectedLocation, setSelectedLocation] = useState(null);
