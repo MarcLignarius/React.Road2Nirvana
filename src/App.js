@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
-import * as parkData from './data/skateboard-parks.json';
+import locationList from './data/nirvana-landmarks.js';
 import mapStyles from './mapstyles';
 
-console.log(process.env.REACT_APP_GOOGLE_KEY);
-
 function Map() {
-  const [selectedPark, setSelectedPark] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   return (
     <GoogleMap 
@@ -15,15 +13,15 @@ function Map() {
       defaultCenter={{ lat: 46.9829827, lng: -123.8062302 }} 
       defaultOptions={{styles: mapStyles}}
     >
-      {parkData.features.map(park => (
+      {locationList.map(location => (
         <Marker
-          key={park.properties.PARK_ID}
+          key={location.ID}
           position={{
-            lat: park.geometry.coordinates[1],
-            lng: park.geometry.coordinates[0]
+            lat: location.COORDINATES[0],
+            lng: location.COORDINATES[1]
           }}
           onClick={() => {
-            setSelectedPark(park);
+            setSelectedLocation(location);
           }}
           icon={{
             url: '/logo.png',
@@ -31,19 +29,20 @@ function Map() {
           }}
         />
       ))}
-      {selectedPark && (
+      {selectedLocation && (
         <InfoWindow
         position={{
-          lat: selectedPark.geometry.coordinates[1],
-          lng: selectedPark.geometry.coordinates[0]
+          lat: selectedLocation.COORDINATES[0],
+          lng: selectedLocation.COORDINATES[1]
         }}
         onCloseClick={() => {
-          setSelectedPark(null);
+          setSelectedLocation(null);
         }}
         >
           <div>
-            <h2>{selectedPark.properties.NAME}</h2>
-            <p>{selectedPark.properties.DESCRIPTIO}</p>
+            <h2>{selectedLocation.NAME}</h2>
+            <p>{selectedLocation.DESCRIPTION}</p>
+            <img src={selectedLocation.IMAGE} alt="Kurt Cobain's childhood home"></img>
           </div>
         </InfoWindow>
       )}
